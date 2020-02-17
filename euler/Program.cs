@@ -18,13 +18,14 @@ namespace euler
             //eliminate all even numbers
             while (number % 2 == 0)  
             {   
-                number = number/2;
+                number /= 2;
             }  
         
             for (int i = 3; i <= Math.Sqrt(number); i += 2)  
             {   
                 while (number % i == 0)  
                 {  
+                    Console.Write($"{number} ");
                     primes.Add(number);
                     number /= i; 
                 }  
@@ -93,10 +94,10 @@ namespace euler
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");//600851475143
-            Console.WriteLine("Largest prime factor: "+LargestPrimeFactor(600851475143));
-            Console.WriteLine("The sum of all the multiples of 3 or 5 below 1000: "+ Doug());
-            int answer = addEven();
-            Console.WriteLine("The sum of even-valued numbers less than 4 million in a fibonacci sequence is: " + answer);
+            Console.WriteLine("Largest prime factor: " + LargestPrimeFactor(600851475143));
+            //Console.WriteLine("The sum of all the multiples of 3 or 5 below 1000: "+ Doug());
+           // int answer = addEven();
+            //Console.WriteLine("The sum of even-valued numbers less than 4 million in a fibonacci sequence is: " + answer);
         }
 
     }
