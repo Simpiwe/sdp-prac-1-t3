@@ -7,11 +7,11 @@ namespace euler
 
     class Program
     {
-        static int LargestPrimeFactor(int number)  
+        static long LargestPrimeFactor(long number)  
         {  
             #region Get prime factors
             
-            List<int> primes = new List<int>(); 
+            List<long> primes = new List<long>(); 
             if (number % 2 == 0)
                 primes.Add(2);
 
@@ -38,10 +38,29 @@ namespace euler
             //return the largest prime factor
             return primes.Max();
         } 
+
+        public static int Doug(){
+            int sum =0;
+            for(int i =1; i<1000;i++){
+                if (i%3==0 && i%5==0){//this is redundant, but im going to leave it in anyways
+                    sum+=i;
+                }
+                else if(i%3==0){
+                    sum+=i;
+                }
+                else if(i%5==0){
+                    sum+=i;
+                }
+            }
+            return sum;
+        }
+
     
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello World!");//600851475143
+            Console.WriteLine("Largest prime factor: "+LargestPrimeFactor(600851475143));
+            Console.WriteLine("The sum of all the multiples of 3 or 5 below 1000: "+ Doug());
         }
     }
 }
