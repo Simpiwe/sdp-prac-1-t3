@@ -55,12 +55,49 @@ namespace euler
             return sum;
         }
 
+        public static int[] getnum()
+        {
+            int[] arr = new int[100];
+            int temp = 1;
+            int i = 0;
+            while (true)
+            {
+                if (i < 2)
+                {
+                    arr[i] = temp;
+                    temp++;
+                    i++;
+                }
+                else
+                {
+                    temp = arr[i - 1];
+                    temp = temp + arr[i - 2];
+                    if (temp > 4000000)
+                        break;
+                    arr[i] = temp;
+                    i++;
+                }
+            }
+            return arr;
+        }
+        public static int addEven()
+        {
+            int sum = 0;
+            int[] arr = getnum();
+            for (int i = 0; i < arr.Length; i++)
+                if (arr[i] % 2 == 0)
+                    sum = sum + arr[i];
+            return sum;
+        }
     
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");//600851475143
             Console.WriteLine("Largest prime factor: "+LargestPrimeFactor(600851475143));
             Console.WriteLine("The sum of all the multiples of 3 or 5 below 1000: "+ Doug());
+            int answer = addEven();
+            Console.WriteLine("The sum of even-valued numbers less than 4 million in a fibonacci sequence is: " + answer);
         }
+
     }
 }
